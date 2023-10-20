@@ -9,4 +9,23 @@ function foco(){
     const anio = new Date().getFullYear();
     titulo.innerText = `Desarrollo de Sistemas Web ${anio}`;
     document.body.appendChild(titulo);
+
+    const img = document.createElement("img");
+    img.classList.add("foco");
+    img.setAttribute("src","foco-apagado.jpg");
+
+    img.addEventListener("click", () => {
+        if (img.src.indexOf("apagado") > 0){
+            img.setAttribute("src", "foco-prendido.jpg");
+            document.body.classList.remove("oscuridad");
+            document.body.classList.add("luz");
+
+        }else{
+            img.setAttribute("src", "foco-apagado.jpg");
+            document.body.classList.remove("luz");
+            document.body.classList.add("oscuridad");
+        }
+    });
+
+    document.body.appendChild(img);
 }
